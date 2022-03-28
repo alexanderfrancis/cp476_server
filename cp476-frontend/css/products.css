@@ -1,0 +1,94 @@
+.product-type {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 3rem;
+  color: #434751;
+}
+
+.product-grid {
+  width: 80%;
+
+  /* background-color: purple; */
+  margin: 5rem auto;
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(25rem, 1fr));
+  grid-gap: 5rem;
+}
+
+.product {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 0px 4px rgba(2, 134, 170, 0.5);
+}
+
+.product-name {
+  font-size: 1.8rem;
+  color: #434751;
+}
+
+.product-cost,
+.product-brand {
+  margin-left: 2rem;
+  font-size: 1.8rem;
+  color: #434751;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn-add-product {
+  padding: 1rem 1rem;
+  font-family: inherit;
+  font-size: 2rem;
+  border: none;
+  background-color: rgba(2, 134, 170, 0.6);
+  width: 100%;
+  color: white;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 2rem 0 2rem;
+}
+
+.img-container {
+  position: relative;
+  width: 100%;
+  background-color: #f6f6f6;
+  border-bottom: 1px solid rgba(2, 134, 170, 0.4);
+}
+.img-container:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+}
+
+.img-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+.product-total {
+  position: absolute;
+  font-size: 2rem;
+  top: 0;
+  right: 0;
+  background-color: rgba(2, 134, 170, 0.6);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  z-index: 1;
+}
+
+.all-utility {
+  margin-top: 10rem;
+}
