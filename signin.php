@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/signin.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/signin.css" />
 
     <title>Ecommerce - Casual</title>
   </head>
@@ -20,12 +20,12 @@
       <ul class="navbar-list">
         <li class="navbar-item">
           <div class="navbar-item-container">
-            <a href="../index.php">
+            <a href="./index.php">
               <svg class="navbar-item--icon">
-                <use xlink:href="../images/icons/sprite.svg#icon-home"></use>
+                <use xlink:href="./images/icons/sprite.svg#icon-home"></use>
               </svg>
             </a>
-            <a href="../index.php"> home </a>
+            <a href="./index.php"> home </a>
           </div>
         </li>
 
@@ -51,7 +51,7 @@
             <div class="navbar-item-container">
               <a href="#">
                 <svg class="navbar-item--icon">
-                  <use xlink:href="../images/icons/sprite.svg#icon-user"></use>
+                  <use xlink:href="./images/icons/sprite.svg#icon-user"></use>
                 </svg>
               </a>
               <p>sign in</p>
@@ -61,7 +61,7 @@
             <div class="navbar-item-container">
               <a href="#">
                 <svg class="navbar-item--icon">
-                  <use xlink:href="../images/icons/sprite.svg#icon-cart"></use>
+                  <use xlink:href="./images/icons/sprite.svg#icon-cart"></use>
                 </svg>
               </a>
               <p>cart</p>

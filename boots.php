@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/products.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/products.css" />
 
     <title>Ecommerce - Boots</title>
   </head>
@@ -20,12 +20,12 @@
       <ul class="navbar-list">
         <li class="navbar-item">
           <div class="navbar-item-container">
-            <a href="../index.php">
+            <a href="./index.php">
               <svg class="navbar-item--icon">
-                <use xlink:href="../images/icons/sprite.svg#icon-home"></use>
+                <use xlink:href="./images/icons/sprite.svg#icon-home"></use>
               </svg>
             </a>
-            <a href="../index.php"> home </a>
+            <a href="./index.php"> home </a>
           </div>
         </li>
 
@@ -50,7 +50,7 @@
           <li class="navbar-item">
                <a class="navbar-item-container" href="./signin.php">
                 <svg class="navbar-item--icon">
-                  <use xlink:href="../images/icons/sprite.svg#icon-user"></use>
+                  <use xlink:href="./images/icons/sprite.svg#icon-user"></use>
                 </svg>
                 <p>sign in</p>
               </a>
@@ -59,7 +59,7 @@
             <div class="navbar-item-container">
               <a href="#">
                 <svg class="navbar-item--icon">
-                  <use xlink:href="../images/icons/sprite.svg#icon-cart"></use>
+                  <use xlink:href="./images/icons/sprite.svg#icon-cart"></use>
                 </svg>
               </a>
               <p>cart</p>
@@ -78,7 +78,7 @@
         <div class="img-container">
           <p class="product-total">5 in stock</p>
           <img
-            src="../images/boots/blundstones.png"
+            src="./images/boots/blundstones.png"
             alt="Product 1"
             class="product-img"
           />
@@ -98,7 +98,7 @@
         <div class="img-container">
           <p class="product-total">5 in stock</p>
           <img
-            src="../images/boots/timberlands.jpg"
+            src="./images/boots/timberlands.jpg"
             alt="Product 2"
             class="product-img"
           />
@@ -117,7 +117,7 @@
         <div class="img-container">
           <p class="product-total">5 in stock</p>
           <img
-            src="../images/boots/dragon.png"
+            src="./images/boots/dragon.png"
             alt="Product 3"
             class="product-img"
           />
@@ -136,7 +136,7 @@
         <div class="img-container">
           <p class="product-total">5 in stock</p>
           <img
-            src="../images/boots/docmartens.jpg"
+            src="./images/boots/docmartens.jpg"
             alt="Product 4"
             class="product-img"
           />
@@ -155,7 +155,7 @@
         <div class="img-container">
           <p class="product-total">5 in stock</p>
           <img
-            src="../images/boots/chelseas.png"
+            src="./images/boots/chelseas.png"
             alt="Product 5"
             class="product-img"
           />
@@ -174,7 +174,7 @@
         <div class="img-container">
           <p class="product-total">5 in stock</p>
           <img
-            src="../images/boots/ugg.jpg"
+            src="./images/boots/ugg.jpg"
             alt="Product 6"
             class="product-img"
           />
