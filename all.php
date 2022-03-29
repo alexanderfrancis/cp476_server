@@ -56,14 +56,12 @@
               </a>
           </li>
           <li class="navbar-item">
-            <div class="navbar-item-container">
-              <a href="#">
-                <svg class="navbar-item--icon">
-                  <use xlink:href="./images/icons/sprite.svg#icon-cart"></use>
-                </svg>
-              </a>
+            <a class="navbar-item-container" href="./cart.php">
+              <svg class="navbar-item--icon">
+                <use xlink:href="./images/icons/sprite.svg#icon-cart"></use>
+              </svg>
               <p>cart</p>
-            </div>
+            </a>
           </li>
         </div>
       </ul>

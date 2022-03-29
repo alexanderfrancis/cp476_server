@@ -11,7 +11,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/signin.css" />
+    <link rel="stylesheet" href="./css/products.css" />
+    <link rel="stylesheet" href="./css/cart.css" />
 
     <title>nadacrease</title>
   </head>
@@ -48,17 +49,15 @@
 
         <div class="navbar-options">
           <li class="navbar-item">
-            <div class="navbar-item-container">
-              <a href="#">
-                <svg class="navbar-item--icon">
-                  <use xlink:href="./images/icons/sprite.svg#icon-user"></use>
-                </svg>
-              </a>
+            <a class="navbar-item-container" href="./signin.php">
+              <svg class="navbar-item--icon">
+                <use xlink:href="./images/icons/sprite.svg#icon-user"></use>
+              </svg>
               <p>sign in</p>
-            </div>
+            </a>
           </li>
           <li class="navbar-item">
-            <a class="navbar-item-container" href="./cart.php">
+            <a class="navbar-item-container" href="#">
               <svg class="navbar-item--icon">
                 <use xlink:href="./images/icons/sprite.svg#icon-cart"></use>
               </svg>
@@ -69,33 +68,6 @@
       </ul>
     </div>
 
-    <div class="account-container">
-      <div class="signin-container">
-        <h2 class="signin-title">Already have an account?</h2>
-        <label class="signin-labels" for="uname"><b>Username</b></label>
-        <input class="signin-input" type="text" placeholder="Enter Username" name="uname" required>
-
-        <label class="signin-labels" for="psw"><b>Password</b></label>
-        <input class="signin-input" type="password" placeholder="Enter Password" name="psw" required>
-
-        <button class="process-btn" type="submit">Sign in</button>
-        <label>
-      </div>
-
-      <div class="signup-container">
-         <h2 class="signin-title">Create an account</h2>
-        <label class="signin-labels" for="email"><b>Email Address</b></label>
-        <input class="signin-input" type="email" placeholder="Enter Email Address" name="email" required>
-
-        <label class="signin-labels" for="uname"><b>Username</b></label>
-        <input class="signin-input" type="text" placeholder="Enter Username" name="uname" required>
-
-        <label class="signin-labels" for="psw"><b>Password</b></label>
-        <input class="signin-input" type="password" placeholder="Enter Password" name="psw" required>
-
-        <button class="process-btn" type="submit">Sign up</button>
-        <label>
-      </div>
-    </div>
+    <h1>placeholder</h1>
   </body>
 </html>
