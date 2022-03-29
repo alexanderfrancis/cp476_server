@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/signin.css" />
 
-    <title>Ecommerce - Casual</title>
+    <title>nadacrease</title>
   </head>
   <body>
     <div class="navbar">
@@ -25,7 +25,7 @@
                 <use xlink:href="./images/icons/sprite.svg#icon-home"></use>
               </svg>
             </a>
-            <a href="./index.php"> home </a>
+            <a href="./index.php"> nadacrease </a>
           </div>
         </li>
 

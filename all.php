@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/products.css" />
 
-    <title>Ecommerce - All</title>
+    <title>nadacrease</title>
   </head>
   <body>
     <div class="navbar">
@@ -25,7 +25,7 @@
                 <use xlink:href="./images/icons/sprite.svg#icon-home"></use>
               </svg>
             </a>
-            <a href="./index.php"> home </a>
+            <a href="./index.php"> nadacrease </a>
           </div>
         </li>
 
@@ -68,362 +68,58 @@
         </div>
       </ul>
     </div>
+    <h1 class="product-type">All Products</h1>
 
-        <h1 class="product-type">All Products - Casual</h1>
+    <?php
+      $servername = "localhost";
+      $username = "root";
+      $password = "password";
+      $dbname = "ecomm_shoes";
 
-    <div class="product-grid">
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/airforce1s.png"
-            alt="Product 1"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Air Force 1s</h2>
-          <p class="product-cost">$135</p>
-        </div>
-        <p class="product-brand">Nike</p>
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
 
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
+      $sql = "SELECT * FROM listings";
+      $result = $conn->query($sql);
 
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/allstars.jpg"
-            alt="Product 2"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Chuck Taylor All Star Low Top</h2>
-          <p class="product-cost">$70</p>
-        </div>
-        <p class="product-brand">Converse</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
+      if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+          ?>
+            <!--HTML-->
+            
+            <div class="product-grid">
+              <div class="product">
+                <div class="img-container">
+                  <p class="product-total"><?php $row['stock'] ?> in stock</p>
+                  <img
+                    src="<?php $row['imgpath'] ?>"
+                    alt="Product 1"
+                    class="product-img"
+                  />
+                </div>
+                <div class="product-info">
+                  <h2 class="product-name"><?php $row['title'] ?></h2>
+                  <p class="product-cost">$<?php $row['cost'] ?></p>
+                </div>
+                <p class="product-brand"><?php $row['brand'] ?></p>
 
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/stansmiths.png"
-            alt="Product 3"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Stan Smith</h2>
-          <p class="product-cost">$120</p>
-        </div>
-        <p class="product-brand">Adidas</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
+                <div class="btn-container">
+                  <button class="btn-add-product">Add Item</button>
+              </div>
+            </div>
 
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/jordans91.png"
-            alt="Product 4"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Jordan Flight Club '91</h2>
-          <p class="product-cost">$170</p>
-        </div>
-        <p class="product-brand">Jordan</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/nmds.png"
-            alt="Product 5"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">NMD R1 Primeblues</h2>
-          <p class="product-cost">$190</p>
-        </div>
-        <p class="product-brand">Adidas</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/superstars.png"
-            alt="Product 6"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Adidas Superstars</h2>
-          <p class="product-cost">$120</p>
-        </div>
-        <p class="product-brand">Adidas</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-    </div>
-    
-        <h1 class="product-type all-utility">All Products - Running</h1>
-
-        <div class="product-grid">
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/flyknits.png"
-            alt="Product 1"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">React Infinity Run Flyknit 2</h2>
-          <p class="product-cost">$210</p>
-        </div>
-        <p class="product-brand">Nike</p>
-
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/streakflys.png"
-            alt="Product 2"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">ZoomX Streakfly</h2>
-          <p class="product-cost">$210</p>
-        </div>
-        <p class="product-brand">Nike</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/endorphin.png"
-            alt="Product 3"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Endorphin Speed 2</h2>
-          <p class="product-cost">$200</p>
-        </div>
-        <p class="product-brand">Saucony</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/fuelcells.png"
-            alt="Product 4"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">FuelCell TC</h2>
-          <p class="product-cost">$260</p>
-        </div>
-        <p class="product-brand">New Balance</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/machinas.png"
-            alt="Product 5"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Machina 2 Colorshift</h2>
-          <p class="product-cost">$190</p>
-        </div>
-        <p class="product-brand">Under Armour</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/ultraboosts.png"
-            alt="Product 6"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Ultraboost 22</h2>
-          <p class="product-cost">$250</p>
-        </div>
-        <p class="product-brand">Adidas</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-    </div>
-
-        <h1 class="product-type all-utility">All Products - Boots</h1>
-
-        <div class="product-grid">
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/blundstones.png"
-            alt="Product 1"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Blundstones Rustic Black</h2>
-          <p class="product-cost">$240</p>
-        </div>
-        <p class="product-brand">Blundstone</p>
-
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/timberlands.jpg"
-            alt="Product 2"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Timberland Premium Waterproof</h2>
-          <p class="product-cost">$200</p>
-        </div>
-        <p class="product-brand">Timberland</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/dragon.png"
-            alt="Product 3"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">The Dragon Boot 3.0</h2>
-          <p class="product-cost">$240</p>
-        </div>
-        <p class="product-brand">Taft</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/docmartens.jpg"
-            alt="Product 4"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">1460 Smooth Leather Lace Up</h2>
-          <p class="product-cost">$200</p>
-        </div>
-        <p class="product-brand">Doc Martens</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/chelseas.png"
-            alt="Product 5"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Water Resistant Chelsea Boot</h2>
-          <p class="product-cost">$125</p>
-        </div>
-        <p class="product-brand">Nordstrom</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/ugg.jpg"
-            alt="Product 6"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Uggs Classic Short II</h2>
-          <p class="product-cost">$195</p>
-        </div>
-        <p class="product-brand">Ugg</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
+            <!--HTML-->
+          <?php
+          // echo $row['listid'] . '  |  ' . $row['title'] . '  |  ' . $row['brand'] . '  |  ' . 
+          // $row['cost'] . ' | ' . $row['imgpath'] . ' | ' . $row['stock']. "\n";
+        }
+      } else {
+        echo "0 results";
+      }
+        $conn->close();
+    ?>
     </div>
   </body>
 </html>

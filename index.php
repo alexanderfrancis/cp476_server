@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Ecommerce - Shoes</title>
+    <title>nadacrease</title>
   </head>
   <body>
     <div class="heading">
@@ -23,7 +23,7 @@
                   <use xlink:href="./images/icons/sprite.svg#icon-home"></use>
                 </svg>
               </a>
-              <p>home</p>
+              <p>nadacrease</p>
             </div>
           </li>
 
