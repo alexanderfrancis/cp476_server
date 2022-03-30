@@ -50,6 +50,12 @@
   background-color: rgba(2, 134, 170, 0.6);
   width: 100%;
   color: white;
+  cursor: pointer;
+  transition: 0.4s all;
+}
+
+.btn-add-product:hover {
+  background-color: rgba(2, 134, 170, 0.8);
 }
 
 .product-info {

@@ -40,6 +40,12 @@
   font-size: inherit;
   border-radius: 2px;
   margin-top: 1rem;
+  transition: 0.4s all;
+  cursor: pointer;
+}
+
+.process-btn:hover {
+  background-color: rgba(2, 134, 170, 0.8);
 }
 
 .signin-title {
