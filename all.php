@@ -68,6 +68,7 @@
     </div>
     <h1 class="product-type">All Products</h1>
 
+    <div class="product-grid">
     <?php
       $servername = "localhost";
       $username = "root";
@@ -87,27 +88,26 @@
           ?>
             <!--HTML-->
             
-            <div class="product-grid">
+            
               <div class="product">
                 <div class="img-container">
-                  <p class="product-total"><?php $row['stock'] ?> in stock</p>
+                  <p class="product-total"><?php echo $row['stock'] ?> in stock</p>
                   <img
-                    src="<?php $row['imgpath'] ?>"
+                    src="<?php echo $row['imgpath'] ?>"
                     alt="Product 1"
                     class="product-img"
                   />
                 </div>
                 <div class="product-info">
-                  <h2 class="product-name"><?php $row['title'] ?></h2>
-                  <p class="product-cost">$<?php $row['cost'] ?></p>
+                  <h2 class="product-name"><?php echo $row['title'] ?></h2>
+                  <p class="product-cost">$<?php echo $row['cost'] ?></p>
                 </div>
-                <p class="product-brand"><?php $row['brand'] ?></p>
+                <p class="product-brand"><?php echo $row['brand'] ?></p>
 
                 <div class="btn-container">
                   <button class="btn-add-product">Add Item</button>
+                </div>
               </div>
-            </div>
-
             <!--HTML-->
           <?php
           // echo $row['listid'] . '  |  ' . $row['title'] . '  |  ' . $row['brand'] . '  |  ' . 
