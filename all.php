@@ -66,57 +66,32 @@
         </div>
       </ul>
     </div>
-    <h1 class="product-type">All Products</h1>
-
+    <h1 class="product-type">All Products - Casual</h1>
     <div class="product-grid">
     <?php
-      $servername = "localhost";
-      $username = "root";
-      $password = "password";
-      $dbname = "ecomm_shoes";
+      require('connection.php');
+      require('functions.php');
+      $conn = openConnection($servername, $username, $password, $dbname);
 
-      $conn = new mysqli($servername, $username, $password, $dbname);
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
+      $sql = "SELECT * FROM listings WHERE listings.type =\"casual\"";
+      loadProducts($sql, $conn); // from functions.php
+      ?>
+    </div>
 
-      $sql = "SELECT * FROM listings";
-      $result = $conn->query($sql);
-
-      if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-          ?>
-            <!--HTML-->
-            
-            
-              <div class="product">
-                <div class="img-container">
-                  <p class="product-total"><?php echo $row['stock'] ?> in stock</p>
-                  <img
-                    src="<?php echo $row['imgpath'] ?>"
-                    alt="Product 1"
-                    class="product-img"
-                  />
-                </div>
-                <div class="product-info">
-                  <h2 class="product-name"><?php echo $row['title'] ?></h2>
-                  <p class="product-cost">$<?php echo $row['cost'] ?></p>
-                </div>
-                <p class="product-brand"><?php echo $row['brand'] ?></p>
-
-                <div class="btn-container">
-                  <button class="btn-add-product">Add Item</button>
-                </div>
-              </div>
-            <!--HTML-->
-          <?php
-          // echo $row['listid'] . '  |  ' . $row['title'] . '  |  ' . $row['brand'] . '  |  ' . 
-          // $row['cost'] . ' | ' . $row['imgpath'] . ' | ' . $row['stock']. "\n";
-        }
-      } else {
-        echo "0 results";
-      }
-        $conn->close();
+    <h1 class="product-type">All Products - Running</h1>
+    <div class="product-grid">
+      <?php
+      $sql = "SELECT * FROM listings WHERE listings.type =\"running\"";
+      loadProducts($sql, $conn); // from functions.php
+      ?>
+    </div>
+    
+    <h1 class="product-type">All Products - Boots</h1>
+    <div class="product-grid">
+    <?php
+      $sql = "SELECT * FROM listings WHERE listings.type =\"boots\"";
+      loadProducts($sql, $conn); // from functions.php
+      closeConnection($conn);
     ?>
     </div>
   </body>

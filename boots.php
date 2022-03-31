@@ -67,125 +67,17 @@
       </ul>
     </div>
 
-    
-
     <h1 class="product-type">Boots</h1>
+    <div class="product-grid">
+    <?php
+      require('connection.php');
+      require('functions.php');
 
-        <div class="product-grid">
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/blundstones.png"
-            alt="Product 1"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Blundstones Rustic Black</h2>
-          <p class="product-cost">$240</p>
-        </div>
-        <p class="product-brand">Blundstone</p>
-
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/timberlands.jpg"
-            alt="Product 2"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Timberland Premium Waterproof</h2>
-          <p class="product-cost">$200</p>
-        </div>
-        <p class="product-brand">Timberland</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/dragon.png"
-            alt="Product 3"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">The Dragon Boot 3.0</h2>
-          <p class="product-cost">$240</p>
-        </div>
-        <p class="product-brand">Taft</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/docmartens.jpg"
-            alt="Product 4"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">1460 Smooth Leather Lace Up</h2>
-          <p class="product-cost">$200</p>
-        </div>
-        <p class="product-brand">Doc Martens</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/chelseas.png"
-            alt="Product 5"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Water Resistant Chelsea Boot</h2>
-          <p class="product-cost">$125</p>
-        </div>
-        <p class="product-brand">Nordstrom</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/boots/ugg.jpg"
-            alt="Product 6"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Uggs Classic Short II</h2>
-          <p class="product-cost">$195</p>
-        </div>
-        <p class="product-brand">Ugg</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
+      $sql = "SELECT * FROM listings WHERE listings.type = \"boots\"";
+      $conn = openConnection($servername, $username, $password, $dbname);
+      loadProducts($sql, $conn); // from functions.php
+      closeConnection($conn);
+    ?>
     </div>
   </body>
 </html>

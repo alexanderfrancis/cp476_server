@@ -68,122 +68,16 @@
     </div>
 
     <h1 class="product-type">Running</h1>
+    <div class="product-grid">
+    <?php
+      require('connection.php');
+      require('functions.php');
 
-        <div class="product-grid">
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/flyknits.png"
-            alt="Product 1"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">React Infinity Run Flyknit 2</h2>
-          <p class="product-cost">$210</p>
-        </div>
-        <p class="product-brand">Nike</p>
-
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/streakflys.png"
-            alt="Product 2"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">ZoomX Streakfly</h2>
-          <p class="product-cost">$210</p>
-        </div>
-        <p class="product-brand">Nike</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/endorphin.png"
-            alt="Product 3"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Endorphin Speed 2</h2>
-          <p class="product-cost">$200</p>
-        </div>
-        <p class="product-brand">Saucony</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/fuelcells.png"
-            alt="Product 4"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">FuelCell TC</h2>
-          <p class="product-cost">$260</p>
-        </div>
-        <p class="product-brand">New Balance</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/machinas.png"
-            alt="Product 5"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Machina 2 Colorshift</h2>
-          <p class="product-cost">$190</p>
-        </div>
-        <p class="product-brand">Under Armour</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/running/ultraboosts.png"
-            alt="Product 6"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Ultraboost 22</h2>
-          <p class="product-cost">$250</p>
-        </div>
-        <p class="product-brand">Adidas</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
+      $sql = "SELECT * FROM listings WHERE listings.type = \"running\"";
+      $conn = openConnection($servername, $username, $password, $dbname);
+      loadProducts($sql, $conn); // from functions.php
+      closeConnection($conn);
+    ?>
     </div>
   </body>
 </html>

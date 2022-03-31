@@ -67,125 +67,17 @@
       </ul>
     </div>
 
-
-
     <h1 class="product-type">Casual</h1>
-
     <div class="product-grid">
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/airforce1s.png"
-            alt="Product 1"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Air Force 1s</h2>
-          <p class="product-cost">$135</p>
-        </div>
-        <p class="product-brand">Nike</p>
+    <?php
+      require('connection.php');
+      require('functions.php');
 
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/allstars.jpg"
-            alt="Product 2"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Chuck Taylor All Star Low Top</h2>
-          <p class="product-cost">$70</p>
-        </div>
-        <p class="product-brand">Converse</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/stansmiths.png"
-            alt="Product 3"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Stan Smith</h2>
-          <p class="product-cost">$120</p>
-        </div>
-        <p class="product-brand">Adidas</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/jordans91.png"
-            alt="Product 4"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Jordan Flight Club '91</h2>
-          <p class="product-cost">$170</p>
-        </div>
-        <p class="product-brand">Jordan</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/nmds.png"
-            alt="Product 5"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">NMD R1 Primeblues</h2>
-          <p class="product-cost">$190</p>
-        </div>
-        <p class="product-brand">Adidas</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img-container">
-          <p class="product-total">5 in stock</p>
-          <img
-            src="./images/casual/superstars.png"
-            alt="Product 6"
-            class="product-img"
-          />
-        </div>
-        <div class="product-info">
-          <h2 class="product-name">Adidas Superstars</h2>
-          <p class="product-cost">$120</p>
-        </div>
-        <p class="product-brand">Adidas</p>
-        <div class="btn-container">
-          <button class="btn-add-product">Add Item</button>
-        </div>
-      </div>
+      $sql = "SELECT * FROM listings WHERE listings.type = \"casual\"";
+      $conn = openConnection($servername, $username, $password, $dbname);
+      loadProducts($sql, $conn); // from functions.php
+      closeConnection($conn);
+    ?>
     </div>
   </body>
 </html>
