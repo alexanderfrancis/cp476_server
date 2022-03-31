@@ -72,30 +72,56 @@
     <div class="account-container">
       <div class="signin-container">
         <h2 class="signin-title">Already have an account?</h2>
-        <label class="signin-labels" for="uname"><b>Username</b></label>
-        <input class="signin-input" type="text" placeholder="Enter Username" name="uname" required>
+        <form action="incldes/login.inc.php" method="post">
+            <label class="signin-labels" for="uname"><b>Username</b></label>
+            <input class="signin-input" type="text" placeholder="Enter Username" name="uname" required>
 
-        <label class="signin-labels" for="psw"><b>Password</b></label>
-        <input class="signin-input" type="password" placeholder="Enter Password" name="psw" required>
+            <label class="signin-labels" for="psw"><b>Password</b></label>
+            <input class="signin-input" type="password" placeholder="Enter Password" name="psw" required>
 
-        <button class="process-btn" type="submit">Sign in</button>
+            <button class="process-btn" type="submit" name="submit">Login</button>
+        </form>
         <label>
       </div>
 
       <div class="signup-container">
          <h2 class="signin-title">Create an account</h2>
-        <label class="signin-labels" for="email"><b>Email Address</b></label>
-        <input class="signin-input" type="email" placeholder="Enter Email Address" name="email" required>
+          <form action="includes/signup.inc.php" method="post">
+              <label class="signin-labels" for="email"><b>Email Address</b></label>
+              <input class="signin-input" type="email" placeholder="Enter Email Address" name="email" required>
 
-        <label class="signin-labels" for="uname"><b>Username</b></label>
-        <input class="signin-input" type="text" placeholder="Enter Username" name="uname" required>
+              <label class="signin-labels" for="uname"><b>Username</b></label>
+              <input class="signin-input" type="text" placeholder="Enter Username" name="uname" required>
 
-        <label class="signin-labels" for="psw"><b>Password</b></label>
-        <input class="signin-input" type="password" placeholder="Enter Password" name="psw" required>
-
-        <button class="process-btn" type="submit">Sign up</button>
+              <label class="signin-labels" for="psw"><b>Password</b></label>
+              <input class="signin-input" type="password" placeholder="Enter Password" name="psw" required>
+          
+              <button class="process-btn" type="submit" name="submit">Sign up</button>
+          </form>
         <label>
-      </div>
+      </div>    
     </div>
+    <?php
+        if (isset($_GET["error"])) {
+          if ($_GET["error"] == "emptyinput") {
+            echo "<p>Fill in all fields!</p>";
+          } 
+          else if ($_GET["error"] == "invaliduname") {
+            echo "<p>Choose a proper username!</p>";
+          }
+          else if ($_GET["error"] == "invalidemail ") {
+            echo "<p>Choose a proper email!!</p>";
+          }
+          else if ($_GET["error"] == "stmtfailed") {
+            echo "<p>Something went wrong :/</p>";
+          }
+          else if ($_GET["error"] == "usernametaken") {
+            echo "<p>Username is already taken!</p>";
+          }
+          else if ($_GET["error"] == "none") {
+            echo "<p>Signup successful!</p>";
+          }
+        }
+      ?>
   </body>
 </html>
