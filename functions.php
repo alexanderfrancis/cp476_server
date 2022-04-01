@@ -6,28 +6,28 @@
         while($row = $result->fetch_assoc()) {
           $count++;
           ?>
-              <?php $_POST['id'] = $row['listid']?>
-              <div class="product">
-                <div class="img-container">
-                  <p class="product-total"><?php echo $row['stock'] ?> in stock</p>
-                  <img
-                    src="<?php echo $row['imgpath'] ?>"
-                    alt="Product <?php echo $count ?>"
-                    class="product-img"
-                  />
-                </div>
-                <div class="product-info">
-                  <h2 class="product-name"><?php echo $row['title'] ?></h2>
-                  <p class="product-cost">$<?php echo $row['cost'] ?></p>
-                </div>
-                <p class="product-brand"><?php echo $row['brand'] ?></p>
-
-                <div class="btn-container">
-                  <form action="includes/checkout.inc.php" method="post">
-                    <button class="btn-add-product" type="submit" name="add">Add Item</button>
-                  </form>
-                </div>
+            <div class="product">
+              <div class="img-container">
+                <p class="product-total"><?php echo $row['stock'] ?> in stock</p>
+                <img
+                  src="<?php echo $row['imgpath'] ?>"
+                  alt="Product <?php echo $count ?>"
+                  class="product-img"
+                />
               </div>
+              <div class="product-info">
+                <h2 class="product-name"><?php echo $row['title'] ?></h2>
+                <p class="product-cost">$<?php echo $row['cost'] ?></p>
+              </div>
+              <p class="product-brand"><?php echo $row['brand'] ?></p>
+
+              <div class="btn-container">
+                <form action="includes/checkout.inc.php" method="post">
+                  <input type="hidden" id="id" name="id" value="<?= $row['listid'] ?>">
+                  <button class="btn-add-product" type="submit" name="add">Add Item</button>
+                </form>
+              </div>
+            </div>
           <?php
         }
       } else {
@@ -42,7 +42,6 @@
         while($row = $result->fetch_assoc()) {
           $count++;
             ?>
-              <?php $_POST['id'] = $row['listid']?>
               <div class="cart-container">
               <div class="cart-product">
                 <div class="cart-img-container">
@@ -73,6 +72,7 @@
                   </div>
                 </div>
                   <form action="includes/checkout.inc.php" method="post">
+                    <input type="hidden" id="id" name="id" value="<?= $row['listid'] ?>">
                     <button class="product-remove-btn" type = "submit" name = "remove">Remove</button>
                   </form>
               </div>

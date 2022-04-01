@@ -1,14 +1,22 @@
 <?php 
     session_start();
+    
+    require_once '../connection.php';
+    require_once 'functions.inc.php';
 
     if(isset($_POST['add'])) {
         // add product id to cart if not already present
         $id = $_POST['id'];
+        var_dump($id);
         $cart = $_SESSION['cart'];
 
         if (!in_array($id, $cart)) {
             $cart[] = $id;
         }
+
+        $_SESSION['cart'] = $cart;
+        header("location: ../index.php");
+        exit();
     }
 
     if (isset($_POST['remove'])) {
