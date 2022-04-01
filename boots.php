@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,12 +49,21 @@
 
         <div class="navbar-options">
           <li class="navbar-item">
-               <a class="navbar-item-container" href="./signin.php">
+            <?php if (!isset($_SESSION["uname"])) { ?>
+              <a class="navbar-item-container" href="./signin.php">
                 <svg class="navbar-item--icon">
                   <use xlink:href="./images/icons/sprite.svg#icon-user"></use>
                 </svg>
                 <p>sign in</p>
               </a>
+            <?php } else { ?>
+              <div class="navbar-item-container">
+                <svg class="navbar-item--icon">
+                  <use xlink:href="./images/icons/sprite.svg#icon-user"></use>
+                </svg>
+                <p>welcome, <?php echo $_SESSION["uname"]; ?></p>
+              </div>
+            <?php } ?>
           </li>
           <li class="navbar-item">
             <a class="navbar-item-container" href="./cart.php">

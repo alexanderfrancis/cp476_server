@@ -117,6 +117,9 @@
           else if ($_GET["error"] == "unametaken") {
             echo "<h1 class=\"display-msg\">Username or email is already taken!</h1>";
           }
+          else if ($_GET["error"] == "wronglogin") {
+            echo "<h1 class=\"display-msg\">Incorrect username/password!</h1>";
+          }
           else if ($_GET["error"] == "none") {
             echo "<h1 class=\"display-msg\">Signup successful!</h1>";
           }

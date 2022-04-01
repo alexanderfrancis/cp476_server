@@ -1,4 +1,8 @@
-<?php   
+<?php 
+    /**
+     * SIGN UP FUNCTIONS
+    */
+
     function emptyInputSignup($email, $uname, $psw) {
         $result;
         if (empty($email) || empty($uname) || empty($psw)) {
@@ -70,6 +74,45 @@
         mysqli_stmt_bind_param($stmt, "sss", $uname, $email, $phash);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        header("location: ../signin.php?error=none");
-        exit();        
+        
+        session_start();
+        $_SESSION["uname"] = $uname;
+        header("location: ../index.php");
+        exit();
+    }
+
+    /**
+     * LOGIN FUNCTIONS
+     */
+
+    function emptyInputLogin($uname, $psw) {
+        $result;
+        if (empty($uname) || empty($psw)) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+
+    function loginUser($conn, $uname, $psw) {
+        $unameExists = unameExists($conn, $uname, $uname);
+        
+        if ($unameExists === false) {
+            header("location: ../signin.php?error=wronglogin");
+            exit();
+        }
+
+        $phash = $unameExists["phash"];
+        $checkPsw = password_verify($psw, $phash);
+
+        if ($checkPsw === false) {
+            header("location: ../signin.php?error=wronglogin");
+            exit();
+        } else if ($checkPsw === true) {
+            session_start();
+            $_SESSION["uname"] = $unameExists["uname"];
+            header("location: ../index.php");
+            exit();
+        }
     }

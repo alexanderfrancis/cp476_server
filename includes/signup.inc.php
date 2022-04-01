@@ -35,6 +35,6 @@
 
 
     } else {
-        header("location: ../signin.php");
+        header("location: ../index.php");
         exit();
     }
