@@ -113,8 +113,9 @@
 
         require('connection.php');
         require('functions.php');
-
-        $sql = "SELECT * FROM listings WHERE listings.listid IN ('".$cart."')";
+        
+        $cart_ids = join("','", $cart);
+        $sql = "SELECT * FROM listings WHERE listings.listid IN ('$cart_ids')";
         $conn = openConnection($servername, $username, $password, $dbname);
         loadCart($sql, $conn); // from functions.php
         closeConnection($conn);

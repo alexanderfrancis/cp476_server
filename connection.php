@@ -1,7 +1,7 @@
 <?php
   $servername = "localhost";
   $username = "root";
-  $password = "3pfam3fdm3";
+  $password = "password";
   $dbname = "ecomm_shoes";
 
   function openConnection($servername, $username, $password, $dbname) {
