@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+  session_start(); 
+  $cart = array();
+  $total = 0;
+  $_SESSION['cart'] = $cart;
+  $_SESSION['total'] = $total;
+  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

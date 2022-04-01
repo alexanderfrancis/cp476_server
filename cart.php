@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start();
+  $cart = $_SESSION['cart'];
+  $quantities = array_fill(0, sizeof($cart), 0);
+  $_SESSION['quantities'] = $quantities;
+  $total = $_SESSION['total'];
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -86,106 +91,34 @@
       <h1>Summary</h1>
       <div class="summary-container">
         <p class="summary-text">Subtotal</p>
-        <p class="summary-cost">$0.00</p>
+        <p class="summary-cost">$<?php echo number_format($total, 2, '.')?></p>
       </div>
       <div class="summary-container">
         <p class="summary-text">Taxes</p>
-        <p class="summary-cost">$0.00</p>
+        <p class="summary-cost">$<?php echo number_format($total * 0.13, 2, '.')?></p>
       </div>
       <div class="summary-container">
         <p class="summary-text">Total</p>
-        <p class="summary-cost">$0.00</p>
+        <p class="summary-cost">$<?php echo number_format($total + ($total * 0.13), 2, '.')?></p>
       </div>
-      <button class="checkout-btn">Checkout</button>
+      <form action="includes/checkout.inc.php" method="post">
+        <button class="checkout-btn" type="submit" name="checkout">Checkout</button>
+      </form>
+      
     </div>
 
     <div class="cart-container">
-      <div class="cart-product">
-        <div class="cart-img-container">
-          <img
-            src="./images/casual/airforce1s.png"
-            alt="Product 1"
-            class="product-img"
-          />
-        </div>
-        <div class="cart-product-info-container">
-          <div class="cart-product-info">
-            <h2 class="cart-product-name">Air Force 1s</h2>
-            <p class="cart-product-cost">$135</p>
-          </div>
-          <p class="cart-product-brand">Nike</p>
-          <p class="cart-product-type">Casual</p>
-          <div class="cart-product-quantity-container">
-            <label for="quantity" class="cart-product-quantity">Quantity</label>
-            <select name="quantity" id="quantity">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-        </div>
-        <button class="product-remove-btn">Remove</button>
-      </div>
+      <?php
+        $cart = $_SESSION['cart'];
 
-      <div class="cart-product">
-        <div class="cart-img-container">
-          <img
-            src="./images/boots/dragon.png"
-            alt="Product 2"
-            class="product-img"
-          />
-        </div>
-        <div class="cart-product-info-container">
-          <div class="cart-product-info">
-            <h2 class="cart-product-name">The Dragon Boot 3.0</h2>
-            <p class="cart-product-cost">$240</p>
-          </div>
-          <p class="cart-product-brand">Taft</p>
-          <p class="cart-product-type">Boots</p>
-          <div class="cart-product-quantity-container">
-            <label for="quantity" class="cart-product-quantity">Quantity</label>
-            <select name="quantity" id="quantity">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-        </div>
-        <button class="product-remove-btn">Remove</button>
-      </div>
+        require('connection.php');
+        require('functions.php');
 
-      <div class="cart-product">
-        <div class="cart-img-container">
-          <img
-            src="./images/running/flyknits.png"
-            alt="Product 3"
-            class="product-img"
-          />
-        </div>
-        <div class="cart-product-info-container">
-          <div class="cart-product-info">
-            <h2 class="cart-product-name">React Infinity Run Flyknit 2</h2>
-            <p class="cart-product-cost">$210</p>
-          </div>
-          <p class="cart-product-brand">Nike</p>
-          <p class="cart-product-type">Running</p>
-          <div class="cart-product-quantity-container">
-            <label for="quantity" class="cart-product-quantity">Quantity</label>
-            <select name="quantity" id="quantity">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-        </div>
-        <button class="product-remove-btn">Remove</button>
+        $sql = "SELECT * FROM listings WHERE listings.listid IN ('".$cart."')";
+        $conn = openConnection($servername, $username, $password, $dbname);
+        loadCart($sql, $conn); // from functions.php
+        closeConnection($conn);
+      ?>
       </div>
-    </div>
   </body>
 </html>
