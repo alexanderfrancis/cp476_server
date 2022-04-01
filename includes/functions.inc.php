@@ -32,7 +32,7 @@
 
     function unameExists($conn, $uname, $email) {
         // prepare SQL statement
-        $sql = "SELECT * FROM users WHERE uname = ? OR usersEmail = ?;"; // verify SQL statement
+        $sql = "SELECT * FROM users WHERE uname = ? OR email = ?;"; // verify SQL statement
         $stmt = mysqli_stmt_init($conn); 
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("location: ../signin.php?error=stmtfailed");
@@ -54,6 +54,7 @@
 
         mysqli_stmt_close($stmt);
     }
+    
     function createUser($conn, $uname, $email, $psw) {
         // hash password before storing
         $phash = password_hash($psw, PASSWORD_DEFAULT); 

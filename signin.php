@@ -72,7 +72,8 @@
     <div class="account-container">
       <div class="signin-container">
         <h2 class="signin-title">Already have an account?</h2>
-        <form action="incldes/login.inc.php" method="post">
+        <form action="includes/login.inc.php" method="post">
+
             <label class="signin-labels" for="uname"><b>Username</b></label>
             <input class="signin-input" type="text" placeholder="Enter Username" name="uname" required>
 
@@ -81,7 +82,6 @@
 
             <button class="process-btn" type="submit" name="submit">Login</button>
         </form>
-        <label>
       </div>
 
       <div class="signup-container">
@@ -98,28 +98,27 @@
           
               <button class="process-btn" type="submit" name="submit">Sign up</button>
           </form>
-        <label>
       </div>    
     </div>
     <?php
         if (isset($_GET["error"])) {
           if ($_GET["error"] == "emptyinput") {
-            echo "<p>Fill in all fields!</p>";
+            echo "<h1 class=\"display-msg\">Fill in all fields!</h1>";
           } 
           else if ($_GET["error"] == "invaliduname") {
-            echo "<p>Choose a proper username!</p>";
+            echo "<h1 class=\"display-msg\">Choose a proper username!</h1>";
           }
-          else if ($_GET["error"] == "invalidemail ") {
-            echo "<p>Choose a proper email!!</p>";
+          else if ($_GET["error"] == "invalidemail") {
+            echo "<h1 class=\"display-msg\">Choose a proper email!!</h1>";
           }
           else if ($_GET["error"] == "stmtfailed") {
-            echo "<p>Something went wrong :/</p>";
+            echo "<h1 class=\"display-msg\">Something went wrong :/</h1>";
           }
-          else if ($_GET["error"] == "usernametaken") {
-            echo "<p>Username is already taken!</p>";
+          else if ($_GET["error"] == "unametaken") {
+            echo "<h1 class=\"display-msg\">Username or email is already taken!</h1>";
           }
           else if ($_GET["error"] == "none") {
-            echo "<p>Signup successful!</p>";
+            echo "<h1 class=\"display-msg\">Signup successful!</h1>";
           }
         }
       ?>

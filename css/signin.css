@@ -23,18 +23,20 @@
 }
 
 .signin-labels {
-  margin-bottom: 0.5rem;
   font-size: 1.8rem;
 }
 
 .signin-input {
   padding: 1rem 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .process-btn {
-  padding: 1rem 0;
+  padding: 1rem 2rem;
   background-color: rgba(2, 134, 170, 0.6);
+  width: 100%;
   color: white;
   border: none;
   font-size: inherit;
@@ -53,4 +55,9 @@
   margin-top: -3rem;
   font-size: 2.4rem;
   border-bottom: 0.4rem solid rgba(2, 134, 170, 0.5);
+}
+
+.display-msg {
+  text-align: center;
+  margin-top: -4rem;
 }

@@ -7,12 +7,14 @@
         $uname = $_POST["uname"];
         $psw = $_POST["psw"];
 
-        require_once 'dbh.inc.php';
+        require_once '../connection.php';
         require_once 'functions.inc.php';
+
+        $conn = openConnection($servername, $username, $password, $dbname);
 
         // handle errors
         if (emptyInputSignup($email, $uname, $psw) !== false) {
-            header("location: ../signin.php?error=empyinput");
+            header("location: ../signin.php?error=emptyinput");
             exit(); 
         }
         if (invalidUname($uname) !== false) {
@@ -29,7 +31,7 @@
         }
 
         // signup the user
-        createUser($conn, $email, $psw, $email);
+        createUser($conn, $uname, $email, $psw);
 
 
     } else {
